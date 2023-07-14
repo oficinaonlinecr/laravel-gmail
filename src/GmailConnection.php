@@ -149,7 +149,7 @@ class GmailConnection extends Google_Client
 	 */
 	public function saveAccessToken(array $config)
 	{
-		$disk = Storage::disk('local');
+		$disk = Storage::disk($this->_config['gmail.storage']);
 		$fileName = $this->getFileName();
 		$file = "gmail/tokens/$fileName.json";
 		$allowJsonEncrypt = $this->_config['gmail.allow_json_encrypt'];
